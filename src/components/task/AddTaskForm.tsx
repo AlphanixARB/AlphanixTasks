@@ -22,7 +22,6 @@ export const AddTaskForm = () => {
 
     async function AddTask() {  
         if( name != ''){
-          setModalVisible(!modalVisible);
           // await database.write(async () => {
           //   await database.get('tasks').create((task) => {
           //     task.name = name;
@@ -42,7 +41,7 @@ export const AddTaskForm = () => {
             handleAddTask(name, scheduledTime);
           }
           
-          setName('');
+          handleCancelTask();
         }else{
             return(
               Alert.alert('Error', 'You must fill in the name field', [

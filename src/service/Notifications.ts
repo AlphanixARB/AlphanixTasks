@@ -40,7 +40,7 @@ export const ScheduleNotification = (scheduledTime : Date, repeat: boolean, task
     });
   }else{
     PushNotification.localNotificationSchedule({
-      channelId: 'com.alphanixtaskapp',
+      channelId: 'com.alphanixtasksapp',
       id: task.taskID,
       title: `🔔 '${task.name}'`,
       message: 'You have set this reminder',
