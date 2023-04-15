@@ -6,3 +6,12 @@
 
 Alphanix Tasks is a simple app to manage your tasks
 
+
+## Screenshots
+
+![App Screenshot](https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/Plan%20your%20day.png)
+![App Screenshot](https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/Add%20task.png)
+![App Screenshot](https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/Edit%20task.png)
+![App Screenshot](https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/Reminder.png)
+![App Screenshot](https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/Timer.png)
+
