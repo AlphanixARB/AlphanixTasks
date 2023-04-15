@@ -9,7 +9,6 @@ import { database } from '../../models/database';
 import { ITask } from '../../types/Task';
 import { CancelNotification, ScheduleNotification } from '../../service/Notifications';
 import { HashCode } from '../../service/Hash';
-import { requestNotificationPermission } from '../../service/Permission';
 
 
 interface Props {
@@ -55,12 +54,7 @@ export function EditTask ({ tasks }: Props) {
     }, [setDatePickerVisible])
   
     const onToggleDateVisibleStatus = async () => {
-        const permission = await requestNotificationPermission();
-        if(permission === true){
-            setDatePickerVisible(true);
-        }else{
-            Alert.alert("You cann't use reminder");
-        }
+        setDatePickerVisible(true);
         setDatePickerVisible(true);
     }
 
@@ -86,13 +80,7 @@ export function EditTask ({ tasks }: Props) {
     }, [setTimerPickerVisible])
     
     const onToggleTimerVisibleStatus = async () => {
-        const permission = await requestNotificationPermission();
-        if(permission === true){
-            setTimerPickerVisible(true);
-        }else{
-            Alert.alert("You cann't use reminder");
-            setTimerPickerVisible(false);
-        } 
+        setTimerPickerVisible(true);
     }
 
     return(

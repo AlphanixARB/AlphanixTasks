@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import { View, Text, Pressable, Alert} from 'react-native';
+import { View, Text, Pressable} from 'react-native';
 import React from 'react';
-import moment from 'moment';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 
 import { ITask } from '../../types/Task';
 import { localNotification } from '../../service/Notifications';
-import { requestNotificationPermission } from '../../service/Permission';
 import { TimerTaskStyle } from '../../styles/components/task/TimerTask';
 
 interface Props {
@@ -39,11 +37,6 @@ export function TimerTask ({ tasks }: Props) {
 
     const onToggleTimerPlaying = async () => {
         setPlaying(!isPlaying);
-        const permission = await requestNotificationPermission();
-        if(permission === true){
-        }else{
-            Alert.alert("You cann't use reminder");
-        }
     }
 
     const onComplete = async () => {

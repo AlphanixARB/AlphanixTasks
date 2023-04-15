@@ -6,7 +6,6 @@ import Modal from "react-native-modal";
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import { CreateTaskButtonStyles, AddTaskFormStyles } from '../../styles/components/AddTaskFormStyle';
-import { requestNotificationPermission } from '../../service/Permission';
 import { handleAddTask } from '../../service/TaskHandler';
 
 export const AddTaskForm = () => {
@@ -72,12 +71,7 @@ export const AddTaskForm = () => {
     }, [setDatePickerVisible, setScheduledTime])
 
     const onToggleDateVisibleStatus = async () => {
-      const permission = await requestNotificationPermission();
-      if(permission === true){
         setDatePickerVisible(true);
-      }else{
-        Alert.alert("You cann't use reminder");
-      }
     }
 
     //Tiemr
