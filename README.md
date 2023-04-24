@@ -25,6 +25,9 @@ Alphanix Tasks is a simple app to manage your tasks
  - Reminder 🔔
  - Ability to edit tasks ✏️
  - Focus timer ⏲️
+ - Added multilingual 😍
+ - Contact us section 📞
+ - Improved user interface 😎
 
 ## License
 
