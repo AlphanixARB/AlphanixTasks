@@ -8,6 +8,7 @@ import { database } from "../../models/database";
 import { ListTask } from "./ListTask";
 import { ITasks } from "../../types/Task";
 import { TaskListStyle } from "../../styles/components/task/TaskList";
+import { useTranslation } from "react-i18next";
 
 const db = database.collections.get('tasks');
 const observeTasks = () => db.query(Q.where('isCompleted', false)).observe();
@@ -25,9 +26,10 @@ const enhanceWithIsCompletedTasks = withObservables([], () => ({
 
 const TaskList = ({ tasks }: ITasks) => {
   //const [showUncompletedTasks, setShowUncompletedTasks] = useState(true);
+  const { t, i18n } = useTranslation();
   
   return(
-  <View>
+  <View style={{marginTop: 10}}>
     {/* {tasks.length != 0 ?
       <View style={TaskListStyle.container}>
           <Text style={TaskListStyle.text}>Tasks</Text>
@@ -37,7 +39,7 @@ const TaskList = ({ tasks }: ITasks) => {
       </View>
     : null}
     {showUncompletedTasks === true ?  */}
-    <Text style={TaskListStyle.text}>Tasks</Text>
+    <Text style={TaskListStyle.text}>{t("tasks")}</Text>
     <FlatList
       data={tasks}
       keyExtractor={item => item.id}
@@ -49,12 +51,13 @@ const TaskList = ({ tasks }: ITasks) => {
 
 const isCompletedTaskList = ({ tasks }: ITasks) => {
   const [showCompletedTasks, setShowCompletedTasks] = useState(false);
+  const { t, i18n } = useTranslation();
   
   return(
   <View style={{marginTop: 10}}>
       {tasks.length != 0 ? 
           <View style={TaskListStyle.container}>
-              <Text style={TaskListStyle.text}>isCompleted</Text>
+              <Text style={TaskListStyle.text}>{t("isCompleted")}</Text>
               <Pressable style={TaskListStyle.pressable} onPress={() => setShowCompletedTasks(!showCompletedTasks)}>
                   <FontAwesome name={showCompletedTasks === true ? 'angle-up': 'angle-down'} size={20} color="white"/>
               </Pressable>

@@ -2,7 +2,7 @@ import { Platform, StyleSheet } from "react-native";
 
 export const CreateTaskButtonStyles = StyleSheet.create({
     button: {
-        backgroundColor: '#3263c8',
+        backgroundColor: '#005EFF',
         justifyContent: 'center',
         alignItems: 'center',
         width: 50,
@@ -11,7 +11,7 @@ export const CreateTaskButtonStyles = StyleSheet.create({
         borderRadius: 100,
     },
       buttonOpen: {
-        backgroundColor: '#3263c8',
+        backgroundColor: '#005EFF',
       },
       buttonClose: {
         backgroundColor: '#3263c8',
@@ -39,7 +39,7 @@ export const AddTaskFormStyles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 5,
         width: 360,
-        height: 165
+        height: 155
     },
 
     fristSection:{
@@ -52,6 +52,7 @@ export const AddTaskFormStyles = StyleSheet.create({
         height: 40,
         borderRadius: 10,
         marginTop: 10,
+        marginBottom: 15,
         paddingLeft: 10,
         flex: 0.87,
         backgroundColor: '#2c2b33',
@@ -102,7 +103,7 @@ export const AddTaskFormStyles = StyleSheet.create({
     },
 
     reminderButton: {
-        width: 110,
+        width: 40,
         height: 40,
         borderRadius: 15,
         textAlign: "center",
@@ -112,7 +113,7 @@ export const AddTaskFormStyles = StyleSheet.create({
     },
 
     reminderButtonActive: {
-        width: 110,
+        width: 40,
         height: 40,
         borderRadius: 15,
         textAlign: "center",
@@ -121,18 +122,18 @@ export const AddTaskFormStyles = StyleSheet.create({
     },
 
     timerButton: {
-        width: 85,
+        width: 40,
         height: 40,
         borderRadius: 15,
         textAlign: "center",
         alignItems: 'center',
         justifyContent: "center",
-        backgroundColor: '#2c2a32',
         marginLeft: 10,
+        backgroundColor: '#2c2a32'
     },
 
     timerButtonActive: {
-        width: 85,
+        width: 40,
         height: 40,
         borderRadius: 15,
         textAlign: "center",
@@ -141,23 +142,21 @@ export const AddTaskFormStyles = StyleSheet.create({
     },
 
     button: {
-        backgroundColor: '#591EFF',
+        backgroundColor: '#005EFF',
         justifyContent: 'center',
         alignItems: 'center',
-        width: 320,
-        height: 50,
+        width: 80,
+        height: 40,
         borderColor: 'black',
         borderRadius: 15,
-        marginTop: 8,
-        marginBottom: 4,
         fontWeight: "bold"
     },
 
     buttonOpen: {
-        backgroundColor: '#F194FF',
+        backgroundColor: '#005EFF',
     },
     buttonClose: {
-        backgroundColor: '#2196F3',
+        backgroundColor: '#005EFF',
     },
     text: {
         color: 'white',

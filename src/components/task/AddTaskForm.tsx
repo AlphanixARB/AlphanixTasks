@@ -7,6 +7,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import { CreateTaskButtonStyles, AddTaskFormStyles } from '../../styles/components/AddTaskFormStyle';
 import { handleAddTask } from '../../service/TaskHandler';
+import { useTranslation } from 'react-i18next';
 
 export const AddTaskForm = () => {
     const [name, setName] = useState('');
@@ -19,6 +20,8 @@ export const AddTaskForm = () => {
     const [timer, setTimer] = useState<Date>();
     const [isTimePickerVisible, setTimePickerVisible] = useState(false);
 
+    const { t, i18n } = useTranslation();
+    
     async function AddTask() {  
         if( name != ''){
           // await database.write(async () => {
@@ -119,7 +122,7 @@ export const AddTaskForm = () => {
                                 numberOfLines={1}
                                 autoFocus= {true}
                                 focusable= {true}
-                                placeholder="Enter new task name"
+                                placeholder= {t("namePlaceholder")}
                                 placeholderTextColor="#cccbcb" />
                         </View>
                         
@@ -128,46 +131,44 @@ export const AddTaskForm = () => {
                                   <Text style={AddTaskFormStyles.repeatButton.Text}>
                                     <Feather name={'repeat'} size={20} color="white"/> Repeat</Text>
                               </Pressable> */}
-                              <Pressable onPress={onToggleDateVisibleStatus} style={isReminder === true ? AddTaskFormStyles.reminderButtonActive : AddTaskFormStyles.reminderButton}>
-                                  <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1}}>
-                                      <Text style={AddTaskFormStyles.text}>
-                                      <FontAwesome name={'bell-o'} size={20} color="white"/> Reminder</Text>
-                                  </View>
-                                  <View>
-                                      <DateTimePickerModal
-                                        isVisible={isDatePickerVisible}
-                                        mode="time"
-                                        is24Hour={true}
-                                        date={new Date()}
-                                        onConfirm={onConfirm}
-                                        onCancel={onDismiss}
-                                      />
-                                  </View>
-                              </Pressable>
-                              <Pressable onPress={onToggleTimerVisibleStatus} style={isTimer === true ? AddTaskFormStyles.timerButtonActive : AddTaskFormStyles.timerButton}>
-                                  <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1}}>
-                                    <MaterialIcons name={'timer'} size={20} color="white"/>
-                                      <Text style={AddTaskFormStyles.text}>
-                                       Timer</Text>
-                                  </View>
-                                  <View>
-                                      <DateTimePickerModal
-                                        isVisible={isTimePickerVisible}
-                                        mode="time"
-                                        date={new Date()}
-                                        onConfirm={onConfirmTimer}
-                                        onCancel={onDismissTimer}
-                                      />
-                                  </View>
-                              </Pressable>
-                        </View>
-
-                        <View>
-                            <Pressable
-                                style={[AddTaskFormStyles.button, AddTaskFormStyles.buttonClose]}
-                                onPress={AddTask}>
-                                    <Text style={AddTaskFormStyles.text}>Add</Text>
-                            </Pressable>
+                              <View style={{ justifyContent: 'flex-start',flexDirection: 'row', flex:1, paddingLeft: 22}}>
+                                  <Pressable onPress={onToggleDateVisibleStatus} style={isReminder === true ? AddTaskFormStyles.reminderButtonActive : AddTaskFormStyles.reminderButton}>
+                                      <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1}}>
+                                          <FontAwesome name={'bell-o'} size={20} color="white"/>
+                                      </View>
+                                      <View>
+                                          <DateTimePickerModal
+                                            isVisible={isDatePickerVisible}
+                                            mode="time"
+                                            is24Hour={true}
+                                            date={new Date()}
+                                            onConfirm={onConfirm}
+                                            onCancel={onDismiss}
+                                          />
+                                      </View>
+                                  </Pressable>
+                                  <Pressable onPress={onToggleTimerVisibleStatus} style={isTimer === true ? AddTaskFormStyles.timerButtonActive : AddTaskFormStyles.timerButton}>
+                                      <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1}}>
+                                        <MaterialIcons name={'timer'} size={20} color="white"/>
+                                      </View>
+                                      <View>
+                                          <DateTimePickerModal
+                                            isVisible={isTimePickerVisible}
+                                            mode="time"
+                                            date={new Date()}
+                                            onConfirm={onConfirmTimer}
+                                            onCancel={onDismissTimer}
+                                          />
+                                      </View>
+                                  </Pressable>
+                              </View>
+                              <View style={{ justifyContent: 'flex-end',flexDirection: 'row', flex:1, paddingRight: 22}}>
+                                <Pressable
+                                  style={[AddTaskFormStyles.button, AddTaskFormStyles.buttonClose]}
+                                  onPress={AddTask}>
+                                      <Text style={AddTaskFormStyles.text}>{t("addTask")}</Text>
+                                </Pressable>
+                              </View>
                         </View>
                     </View>
                 </View>

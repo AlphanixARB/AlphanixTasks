@@ -1,0 +1,26 @@
+{
+    "rateUs": "Rate us",
+    "language": "Language",
+    "tasks": "tasks",
+    "isCompleted": "isCompleted",
+    "addTask": "Add",
+    "taskName": "Task Name",
+    "reminder": "Reminder",
+    "timer": "Timer",
+    "namePlaceholder": "Enter new task name",
+    "contactUs": "Contact us",
+    "setting": "Setting",
+    
+    "_comment": "Screen",
+    "editTaskScreenTitle": "Edit Task",
+    "timerTaskScreenTitle": "Timer Task",
+
+    "_comment2": "Timer Screen",
+    "start": "start",
+    "pause": "Pause",
+
+    "_comment3": "Contact Us",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send"
+}

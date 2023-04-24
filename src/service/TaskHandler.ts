@@ -10,14 +10,12 @@ export async function handleAddTask(name: string, scheduledTime: any, timer?: Da
             task.name = name;
             task.isCompleted = false;
             task.taskID = HashCode(String(task.id));
-            task.timer = String(timer);
-            console.log(task.taskID)
+            task.timer = timer != undefined ? String(timer) : '';
             if( scheduledTime != null ){
                 task.scheduledTime = String(scheduledTime);  
                 ScheduleNotification(scheduledTime, false, task);
             }if ( scheduledTime === undefined ){
                 task.scheduledTime = '';
-                console.log(1)
             }
         });
     });

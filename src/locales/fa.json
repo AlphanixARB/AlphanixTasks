@@ -1,0 +1,26 @@
+{
+    "rateUs": "به ما امتیاز دهید",
+    "language": "زبان",
+    "tasks": "وظایف",
+    "isCompleted": "انجام شده",
+    "addTask": "افزودن",
+    "taskName": "نام وظیفه",
+    "reminder": "یادآوری",
+    "timer": "تایمر",
+    "namePlaceholder": "نام وظیفه را وارد کنید",
+    "contactUs": "ارتباط با ما",
+    "setting": "تنظیمات",
+
+    "_comment": "Screen",
+    "editTaskScreenTitle": "ویرایش وظیفه",
+    "timerTaskScreenTitle": "تایمر انجام وظیفه",
+
+    "_comment2": "Timer Screen",
+    "start": "شروع",
+    "pause": "مکث",
+
+    "_comment3": "Contact Us",
+    "subject": "موضوع",
+    "message": "متن",
+    "send": "ارسال"
+}

@@ -6,6 +6,7 @@ import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 import { ITask } from '../../types/Task';
 import { localNotification } from '../../service/Notifications';
 import { TimerTaskStyle } from '../../styles/components/task/TimerTask';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
     tasks: ITask;
@@ -14,6 +15,8 @@ interface Props {
 export function TimerTask ({ tasks }: Props) {
     const [name, setName] = useState('');
     const [isPlaying, setPlaying] = useState(false);
+
+    const { t, i18n } = useTranslation();
 
     const time = (time: String) => {
         const hours = new Date(String(time)).getHours();
@@ -67,7 +70,7 @@ export function TimerTask ({ tasks }: Props) {
             <View style={TimerTaskStyle.centeredView}>
                 <Pressable onPress={onToggleTimerPlaying} style={TimerTaskStyle.button}>
                     <View>
-                        <Text style={TimerTaskStyle.text}>{isPlaying === true ? 'Pause' : 'Start'}</Text>
+                        <Text style={TimerTaskStyle.text}>{isPlaying === true ? t("pause") : t("start")}</Text>
                     </View>
                 </Pressable>
             </View>

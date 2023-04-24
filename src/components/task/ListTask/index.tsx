@@ -28,7 +28,7 @@ function RawListTask({ tasks }: Props) {
             </Text>
             { tasks.scheduledTime != '' ? 
                 <Text style={ tasks.isCompleted === true ? TaskStyles.doneSubTitle : TaskStyles.subTitle }>
-                  { moment(new Date(tasks.scheduledTime)).format("hh:mm") }
+                  { moment(new Date(tasks.scheduledTime)).format("hh:mm A") }
                 </Text>
               : null 
             }        
@@ -47,7 +47,7 @@ function RawListTask({ tasks }: Props) {
                 </Pressable>
             </View>
         : null}
-        { tasks.isCompleted === false ? 
+        { tasks.isCompleted === false && tasks.timer != '' ? 
             <View style={ TaskStyles.deleteContainer }>
                 <Pressable onPress={() => navigation.navigate("TimerTask",{
                     name : tasks.name,

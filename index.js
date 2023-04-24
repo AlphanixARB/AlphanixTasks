@@ -2,10 +2,12 @@
  * @format
  */
 
+import 'react-native-gesture-handler';
 import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
 import PushNotification from "react-native-push-notification";
+import i18n from './src/service/i18n';
 import { handleUpdateQueryTask } from './src/service/TaskHandler';
 
 PushNotification.configure({

@@ -9,6 +9,7 @@ import { database } from '../../models/database';
 import { ITask } from '../../types/Task';
 import { CancelNotification, ScheduleNotification } from '../../service/Notifications';
 import { HashCode } from '../../service/Hash';
+import { useTranslation } from 'react-i18next';
 
 
 interface Props {
@@ -19,6 +20,8 @@ export function EditTask ({ tasks }: Props) {
     const [name, setName] = useState('');
     const [isDatePickerVisible, setDatePickerVisible] = useState(false);
     const [isTimerPickerVisible, setTimerPickerVisible] = useState(false);
+    
+    const { t, i18n } = useTranslation();
     
     async function onToggleName() {
         await database.write(async () => {
@@ -84,19 +87,19 @@ export function EditTask ({ tasks }: Props) {
     }
 
     return(
-        <View>
+        <View style={{flex:1}}>
             <View>
-                <Text style={{color:'white'}}>Task Name</Text>
+                <Text style={{color:'white'}}>{t("taskName")}</Text>
             </View>
             <TextInput
                     style={ EditTaskStyle.NameTextInput }
                     onChangeText={setName}
                     onEndEditing={onToggleName}
                     defaultValue={ tasks.name }
-                    placeholder="Enter new task name"/>
+                    placeholder={t("namePlaceholder")}/>
             <View>
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Text style={EditTaskStyle.text}>scheduledTime</Text>
+                    <Text style={EditTaskStyle.text}>{t("reminder")}</Text>
                     <Pressable onPress={onToggleDateVisibleStatus} style={EditTaskStyle.button}>
                         <View>
                             <Text style={EditTaskStyle.text}>{  tasks.scheduledTime === '' ? 'Not Set ScheduledTime': moment(new Date(tasks.scheduledTime)).format("hh:mm") }</Text>
@@ -114,7 +117,7 @@ export function EditTask ({ tasks }: Props) {
                 </View>
                 
                 <View style={{ flexDirection: 'row', alignItems: 'center'}}>
-                    <Text style={EditTaskStyle.text}>Timer</Text>
+                    <Text style={EditTaskStyle.text}>{t("timer")}</Text>
                     <Pressable onPress={onToggleTimerVisibleStatus} style={EditTaskStyle.button}>
                         <View>
                             <Text style={EditTaskStyle.text}>{ tasks.timer === '' ? 'Not Set Timer': moment(new Date(tasks.timer)).format("hh:mm") }</Text>
