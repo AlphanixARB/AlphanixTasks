@@ -85,16 +85,6 @@ export function SettingScreen() {
                     </Modal>
                 </View>
                 <View style={ SettingUIStyles.container }>
-                    <Button  style={ SettingUIStyles.button } iconOnRight backgroundColor={Colors.red30} flex size={Button.sizes.large}>
-                        <Text color={Colors.white}>
-                            {t('rateUs')}
-                        </Text>
-                        <View flex right>
-                        <FontAwesome name={'angle-right'} size={20} color="white"/>
-                        </View>
-                    </Button>
-                </View>
-                <View style={ SettingUIStyles.container }>
                     <Button onPress={() => {setcontactFormVisible(!contactFormVisible)}} style={ SettingUIStyles.button } iconOnRight backgroundColor={Colors.red30} flex size={Button.sizes.large}>
                         <Text color={Colors.white}>
                             {t('contactUs')}
