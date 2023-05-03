@@ -12,12 +12,12 @@ Alphanix Tasks is a simple app to manage your tasks
 ## Screenshots
 
 <div align="center" width="100%">
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/into.png" width=25% height=25%>
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/AddTask.png" width=25% height=25%>
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/EditTask.png" width=25% height=25%>
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/Reminder.png" width=25% height=25%>
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/FocusTimer.png" width=25% height=25%>
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/into2.png" width=25% height=25%>
+  <img alt="home screen" src="https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/into.png" width=25% height=25%>
+  <img alt="add task" src="https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/AddTask.png" width=25% height=25%>
+  <img alt="edit task screen" src="https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/EditTask.png" width=25% height=25%>
+  <img alt="reminder" src="https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/Reminder.png" width=25% height=25%>
+  <img alt="focus timer screen" src="https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/FocusTimer.png" width=25% height=25%>
+  <img alt="home screen" src="https://github.com/AlphanixARB/AlphanixTasks/blob/master/asset/into2.png" width=25% height=25%>
  </div>
  
  ## Key Features
