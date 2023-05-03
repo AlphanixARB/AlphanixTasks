@@ -16,25 +16,30 @@ export const CreateChannel = () => {
   );
 }
 
-export const localNotification = (task: ITask) => {
+export const localNotification = (task: ITask, message: string) => {
   CreateChannel();
   PushNotification.localNotification({
     channelId: 'com.alphanixtasksapp',
     id: task.taskID,
     title: `🔔 '${task.name}'`,
-    message: 'You have set this reminder',
+    message: message,
   });
 }
+
 export const ScheduleNotification = (scheduledTime : Date, repeat: boolean, task: ITask) => {
+
   CreateChannel();
+
   if(repeat === true){
     PushNotification.localNotificationSchedule({
       channelId: 'com.alphanixtasksapp',
       id: task.taskID,
       title: `🔔 '${task.name}'`,
-      message: 'You have set this reminder',
-      actions: ["Completed"],
+      allowWhileIdle: true,
+      message: "You have set this reminder",
+      actions: ["completed"],
       ongoing: true,
+      ignoreInForeground: false,
       repeatType: 'day',
       date: new Date(new Date(Date.now()).setHours(scheduledTime.getHours(),scheduledTime.getMinutes()))
     });
@@ -43,9 +48,11 @@ export const ScheduleNotification = (scheduledTime : Date, repeat: boolean, task
       channelId: 'com.alphanixtasksapp',
       id: task.taskID,
       title: `🔔 '${task.name}'`,
-      message: 'You have set this reminder',
-      actions: ["Completed"],
+      allowWhileIdle: true,
+      message: "You have set this reminder",
+      actions: ["completed"],
       ongoing: true,
+      ignoreInForeground: false,
       date: new Date(new Date(Date.now()).setHours(scheduledTime .getHours(),scheduledTime .getMinutes()))
     });
   }

@@ -29,7 +29,7 @@ const TaskList = ({ tasks }: ITasks) => {
   const { t, i18n } = useTranslation();
   
   return(
-  <View style={{marginTop: 10}}>
+  <View style={{marginTop: 10, width: 350}}>
     {/* {tasks.length != 0 ?
       <View style={TaskListStyle.container}>
           <Text style={TaskListStyle.text}>Tasks</Text>
@@ -54,7 +54,7 @@ const isCompletedTaskList = ({ tasks }: ITasks) => {
   const { t, i18n } = useTranslation();
   
   return(
-  <View style={{marginTop: 10}}>
+  <View style={{marginTop: 10, width: 350}}>
       {tasks.length != 0 ? 
           <View style={TaskListStyle.container}>
               <Text style={TaskListStyle.text}>{t("isCompleted")}</Text>

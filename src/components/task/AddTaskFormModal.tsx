@@ -5,17 +5,17 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import Modal from "react-native-modal";
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import { CreateTaskButtonStyles, AddTaskFormStyles } from '../../styles/components/AddTaskFormStyle';
+import { AddTaskFormModalStyles } from '../../styles/components/AddTaskFormModalStyle';
 import { handleAddTask } from '../../service/TaskHandler';
 import { useTranslation } from 'react-i18next';
 
-export const AddTaskForm = () => {
+export const AddTaskFormModal = ({ open, onClose }) => {
     const [name, setName] = useState('');
-    const [modalVisible, setModalVisible] = useState(false);
+    const [modalVisible, setModalVisible] = useState(open);
     const [isDatePickerVisible, setDatePickerVisible] = useState(false);
     const [scheduledTime, setScheduledTime] = useState();
     //const [isRepeat, setRepeat] = useState(false);
-    const [isReminder, setReminder] = useState(false);
+    const [isReminder, setIsReminder] = useState(false);
     const [isTimer, setIsTimer] = useState(false);
     const [timer, setTimer] = useState<Date>();
     const [isTimePickerVisible, setTimePickerVisible] = useState(false);
@@ -59,18 +59,20 @@ export const AddTaskForm = () => {
       setDatePickerVisible(false);
       setTimer(undefined);
       setIsTimer(false);
+      setIsReminder(false);
       setScheduledTime(undefined);
+      onClose();
     }
 
     const onDismiss = React.useCallback(() => {
       setDatePickerVisible(false);
-      setReminder(false);
+      setIsReminder(false);
     }, [setDatePickerVisible])
 
     const onConfirm = React.useCallback((date: any) => {
       setDatePickerVisible(false);
       setScheduledTime(date);
-      setReminder(true);
+      setIsReminder(true);
     }, [setDatePickerVisible, setScheduledTime])
 
     const onToggleDateVisibleStatus = async () => {
@@ -97,26 +99,17 @@ export const AddTaskForm = () => {
 
     return (
         <View>
-          <Pressable
-              style={[CreateTaskButtonStyles.button, CreateTaskButtonStyles.buttonOpen]}
-              onPress={() => setModalVisible(true)}
-              >
-              <View>
-                <FontAwesome name={'plus'} size={20} color="white"/>
-              </View>
-          </Pressable>
-          <View>
             <Modal
                 animationIn={"slideInUp"}
-                isVisible={modalVisible}
-                onBackdropPress= {handleCancelTask}
-                style={AddTaskFormStyles.container}
+                isVisible={open}
+                onBackdropPress={handleCancelTask}
+                style={AddTaskFormModalStyles.container}
                 >
                 <View>
-                    <View style={AddTaskFormStyles.modalView }>
-                        <View style={AddTaskFormStyles.fristSection}>
+                    <View style={AddTaskFormModalStyles.modalView }>
+                        <View style={AddTaskFormModalStyles.fristSection}>
                             <TextInput
-                                style={ AddTaskFormStyles.titleTextInput }
+                                style={ AddTaskFormModalStyles.titleTextInput }
                                 onChangeText={setName}
                                 value={name}
                                 numberOfLines={1}
@@ -127,12 +120,12 @@ export const AddTaskForm = () => {
                         </View>
                         
                         <View style={{ flexDirection: 'row', marginTop: 3}}>
-                              {/* <Pressable onPress={() => setRepeat(!isRepeat)} style={isRepeat === true ? AddTaskFormStyles.repeatButtonActive : AddTaskFormStyles.repeatButton}>
-                                  <Text style={AddTaskFormStyles.repeatButton.Text}>
+                              {/* <Pressable onPress={() => setRepeat(!isRepeat)} style={isRepeat === true ? AddTaskFormModalStyles.repeatButtonActive : AddTaskFormModalStyles.repeatButton}>
+                                  <Text style={AddTaskFormModalStyles.repeatButton.Text}>
                                     <Feather name={'repeat'} size={20} color="white"/> Repeat</Text>
                               </Pressable> */}
                               <View style={{ justifyContent: 'flex-start',flexDirection: 'row', flex:1, paddingLeft: 22}}>
-                                  <Pressable onPress={onToggleDateVisibleStatus} style={isReminder === true ? AddTaskFormStyles.reminderButtonActive : AddTaskFormStyles.reminderButton}>
+                                  <Pressable onPress={onToggleDateVisibleStatus} style={isReminder === true ? AddTaskFormModalStyles.reminderButtonActive : AddTaskFormModalStyles.reminderButton}>
                                       <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1}}>
                                           <FontAwesome name={'bell-o'} size={20} color="white"/>
                                       </View>
@@ -147,7 +140,7 @@ export const AddTaskForm = () => {
                                           />
                                       </View>
                                   </Pressable>
-                                  <Pressable onPress={onToggleTimerVisibleStatus} style={isTimer === true ? AddTaskFormStyles.timerButtonActive : AddTaskFormStyles.timerButton}>
+                                  <Pressable onPress={onToggleTimerVisibleStatus} style={isTimer === true ? AddTaskFormModalStyles.timerButtonActive : AddTaskFormModalStyles.timerButton}>
                                       <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1}}>
                                         <MaterialIcons name={'timer'} size={20} color="white"/>
                                       </View>
@@ -164,16 +157,15 @@ export const AddTaskForm = () => {
                               </View>
                               <View style={{ justifyContent: 'flex-end',flexDirection: 'row', flex:1, paddingRight: 22}}>
                                 <Pressable
-                                  style={[AddTaskFormStyles.button, AddTaskFormStyles.buttonClose]}
+                                  style={[AddTaskFormModalStyles.button, AddTaskFormModalStyles.buttonClose]}
                                   onPress={AddTask}>
-                                      <Text style={AddTaskFormStyles.text}>{t("addTask")}</Text>
+                                      <Text style={AddTaskFormModalStyles.text}>{t("addTask")}</Text>
                                 </Pressable>
                               </View>
                         </View>
                     </View>
                 </View>
             </Modal>
-          </View>
       </View> 
     );
 };

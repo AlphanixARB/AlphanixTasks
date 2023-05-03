@@ -13,7 +13,9 @@ export async function handleAddTask(name: string, scheduledTime: any, timer?: Da
             task.timer = timer != undefined ? String(timer) : '';
             if( scheduledTime != null ){
                 task.scheduledTime = String(scheduledTime);  
-                ScheduleNotification(scheduledTime, false, task);
+                ScheduleNotification(scheduledTime,
+                                    false,
+                                    task);
             }if ( scheduledTime === undefined ){
                 task.scheduledTime = '';
             }
