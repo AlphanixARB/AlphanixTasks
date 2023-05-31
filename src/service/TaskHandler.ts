@@ -40,10 +40,9 @@ export async function handleUpdateTask(tasks: ITask, variable: string, value?: a
             if(variable === 'isCompleted'){
                 if(task.isCompleted != true){
                     task.isCompleted = true;
-                    console.log('1')
+                    CancelNotification(HashCode(task.id));
                 }else{
                     task.isCompleted = false;
-                    console.log('2')
                 } 
             }  
         });
